@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: pet
+    depends_on:
+      - pgdb
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - pet
+
+  pgdb:
+    image: postgres
+    environment:
+      - POSTGRES_DB=db_pet
+      - POSTGRES_USER=pet
+      - POSTGRES_PASSWORD=petpass
+    container_name: pgdb
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdbdata:/var/lib/postgresql/data/
+    networks:
+      - pet
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+    networks:
+      - pet
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=app@domain.com
+      - PGADMIN_DEFAULT_PASSWORD=app
+    ports:
+      - 5050:80
+    networks:
+      - pet
+volumes:
+  pgdbdata: null
+networks:
+  pet:
+    driver: bridge
