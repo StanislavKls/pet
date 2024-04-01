@@ -2,21 +2,19 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     use WithoutModelEvents;
 
     /**
-     * Seed the application's database.
+     * Run the database seeds.yt
      */
     public function run(): void
     {
-        $this->call([
-            UserSeeder::class,
-            WalletSeeder::class,
-        ]);
+        User::factory(5)->create();
     }
 }
