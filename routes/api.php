@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Walet\CreateWalletController;
+use App\Http\Controllers\Wallet\CreateWalletController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -13,5 +13,5 @@ Route::get('/test', function (Request $request) {
 });
 
 Route::prefix('wallets')->group(function () {
-    Route::post('/create-walet', CreateWalletController::class);
+    Route::post('/create-wallet', CreateWalletController::class);
 });
