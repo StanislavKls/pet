@@ -8,4 +8,15 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        host: '0.0.0.0', // Доступ снаружи контейнера
+        port: 5173, // Стандартный порт Vite
+        strictPort: true,
+        hmr: {
+            host: 'localhost', // Или IP машины-хоста
+        },
+        watch: {
+            usePolling: true, // Нужен для работы в Docker
+        },
+    }
 });
