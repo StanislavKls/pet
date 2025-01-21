@@ -11,9 +11,10 @@ class CreateWalletControllerTest extends AbstractFeatureTestCase
 {
     /**
      * Тест контроллера.
+     *
      * @dataProvider provider
      */
-    public function testInvoke($name): void
+    public function test_invoke($name): void
     {
         // give/when
         $response = $this->postJson('/api/wallets/create-wallet', ['name' => $name]);

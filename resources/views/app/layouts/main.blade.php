@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -8,20 +8,18 @@
 </head>
 <body class="bg-gray-100">
 
-    <!-- Верхняя навигация -->
-    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
-        <ul class="flex space-x-4">
-            <li><a href="#" class="text-blue-600 hover:underline">📄 Операции</a></li>
-            <li><a href="#" class="text-blue-600 hover:underline">💰 Счета</a></li>
-            <li><a href="#" class="text-blue-600 hover:underline">📊 Отчёты</a></li>
-            <li><a href="#" class="text-blue-600 hover:underline">⚙ Настройки</a></li>
-        </ul>
-        <h1 class="text-xl text-yellow-400 font-semibold">Домашние финансы</h1>
-    </nav>
+    @include('app.layouts.nav') <!-- Верхнее меню -->
 
-    <div>
-        @yield('content')
+    <div class="flex h-screen">
+        @include('app.layouts.sidebar') <!-- Боковое меню -->
+
+        <div class="flex-1 p-6 overflow-auto">
+            @yield('content') <!-- Динамический контент -->
+        </div>
     </div>
 
+    <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>
+
+

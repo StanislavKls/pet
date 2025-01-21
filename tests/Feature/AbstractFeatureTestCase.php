@@ -16,8 +16,8 @@ abstract class AbstractFeatureTestCase extends TestCase
         parent::tearDown();
 
         echo \PHP_EOL,
-            "Memory usage: ",
-            (int) (memory_get_usage(true) / (1024 * 1024)),
-            "MB for " . static::class;
+        'Memory usage: ',
+        (int) (memory_get_usage(true) / (1024 * 1024)),
+        'MB for '.static::class;
     }
 }

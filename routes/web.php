@@ -19,4 +19,4 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/main', [\App\Http\Controllers\MainController::class, 'main'])->name('main');
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
