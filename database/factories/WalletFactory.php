@@ -18,7 +18,7 @@ class WalletFactory extends Factory
     {
         return [
             'name' => fake()->numerify('Мои наличные'),
-            'amount' => fake()->randomFloat(2),
+            'balance' => fake()->randomFloat(2),
         ];
     }
 }

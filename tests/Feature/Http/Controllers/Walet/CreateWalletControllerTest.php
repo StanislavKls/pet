@@ -21,7 +21,7 @@ class CreateWalletControllerTest extends AbstractFeatureTestCase
 
         // then
         $response->assertJson(['status' => 'OK', 'error' => 'NONE']);
-        $this->assertDatabaseHas(Wallet::class, ['name' => $name, 'amount' => null]);
+        $this->assertDatabaseHas(Wallet::class, ['name' => $name, 'balance' => null]);
     }
 
     /**
