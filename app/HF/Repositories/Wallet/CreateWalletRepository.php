@@ -14,9 +14,13 @@ final class CreateWalletRepository
 {
     public function create(CreateWalletDTO $dto): Wallet
     {
-        $model = new Wallet;
-        $model->name = $dto->name;
-        $model->save();
+        try {
+            $model = new Wallet;
+            $model->name = $dto->name;
+            $model->save();
+        } catch (\Exception $e) {
+            
+        }
 
         return $model;
     }

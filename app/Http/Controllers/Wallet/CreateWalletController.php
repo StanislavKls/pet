@@ -17,7 +17,7 @@ class CreateWalletController extends Controller
     public function __invoke(CreateWalletRequest $request, CreateWalletService $service): JsonResponse
     {
         $dto = new CreateWalletDTO($request->name);
-        $response = $service->execute($dto);
+        $service->execute($dto);
 
         return response()->json(['status' => 'OK', 'error' => 'NONE']);
     }

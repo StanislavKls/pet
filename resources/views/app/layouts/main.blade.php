@@ -17,8 +17,6 @@
             @yield('content') <!-- Динамический контент -->
         </div>
     </div>
-
-    <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>
 
