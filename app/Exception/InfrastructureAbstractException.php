@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Exception;
 
-use Exception;
-
-abstract class InfrastructureAbstractException extends Exception
+abstract class InfrastructureAbstractException extends \RuntimeException
 {
     public function __construct(string $message = "", int $code = 0, ?Exception $previous = null)
     {

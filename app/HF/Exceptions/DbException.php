@@ -6,7 +6,7 @@ namespace App\HF\Exceptions;
 
 use App\Exception\InfrastructureAbstractException;
 
-class DbException extends InfrastructureAbstractException
+final class DbException extends InfrastructureAbstractException
 {
     public function __construct(string $message = "Ошибка при работе с базой данных", int $code = 0, ?\Exception $previous = null)
     {

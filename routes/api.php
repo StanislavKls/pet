@@ -15,6 +15,6 @@ Route::get('/test', function (Request $request) {
 
 Route::prefix('wallets')->group(function (): void {
     Route::post('/create', App\Http\Controllers\Wallet\CreateWalletController::class);
-    Route::post('/destroy', App\Http\Controllers\Wallet\DestroyWalletController::class);
+    Route::delete('/destroy', App\Http\Controllers\Wallet\DestroyWalletController::class);
     Route::get('/', App\Http\Controllers\Wallet\GetWalletsController::class);
 });

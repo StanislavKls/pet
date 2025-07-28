@@ -22,7 +22,7 @@ final class CreateWalletRepository
 
             return $model;
         } catch (\Exception $e) {
-            throw new DbException("Failed to create wallet with name: {$dto->name}", 0, $e);
+            throw new DbException("Не удалось создать кошелек с именем: {$dto->name}", 0, $e);
         }
     }
 }

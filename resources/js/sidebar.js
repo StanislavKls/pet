@@ -1,32 +1,31 @@
+import { openWalletPopup } from './wallet-popup.js';
+
 document.addEventListener("DOMContentLoaded", function () {
     fetch("/api/wallets")
         .then(response => response.json())
         .then(data => {
-
+            console.log(data);
             const walletsList = document.getElementById("wallets-list");
             walletsList.innerHTML = "";
             data.forEach(wallet => {
                 const li = document.createElement("li");
-                li.className = "flex justify-between p-2 bg-gray-100 rounded";
+                li.className = "flex justify-between p-2 bg-gray-100 rounded cursor-pointer hover:bg-gray-200 transition-colors";
                 li.innerHTML = `${wallet.name} <span class="text-blue-600 font-semibold">${wallet.balance ?? 0} ₽</span>`;
+                console.log(123);
+                // Add click event to open popup for editing
+                li.addEventListener("click", () => {
+                    openWalletPopup({
+                        id: wallet.id,
+                        name: wallet.name,
+                        balance: wallet.balance
+                    });
+                });
+
                 walletsList.appendChild(li);
             });
         })
         .catch(error => console.error("Ошибка загрузки кошельков:", error));
 
-
-    const modal = document.getElementById("walletModal");
-    const openModalBtn = document.getElementById("openModalBtn");
-    const closeModalBtn = document.getElementById("closeModalBtn");
-    const walletForm = document.getElementById("walletForm");
-
-    openModalBtn.addEventListener("click", () => {
-        modal.classList.remove("hidden");
-    });
-
-    closeModalBtn.addEventListener("click", () => {
-        modal.classList.add("hidden");
-    });
 
     walletForm.addEventListener("submit", function (e) {
         e.preventDefault();

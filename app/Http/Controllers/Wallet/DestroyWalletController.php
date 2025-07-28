@@ -14,7 +14,7 @@ class DestroyWalletController extends Controller
 {
     public function __invoke(DestroyWalletRequest $request, DestroyWalletService $service): JsonResponse
     {
-        $dto = new DestroyWalletDTO($request->id);
+        $dto = new DestroyWalletDTO((int) $request->id);
         $service->execute($dto);
 
         return response()->json(['status' => 'OK', 'error' => 'NONE']);
