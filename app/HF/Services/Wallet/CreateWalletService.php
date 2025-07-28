@@ -10,7 +10,9 @@ use App\Models\Wallet;
 
 final class CreateWalletService implements CreateWalletInterface
 {
-    public function __construct(private CreateWalletRepository $repo) {}
+    public function __construct(private CreateWalletRepository $repo)
+    {
+    }
 
     public function execute(CreateWalletDTO $dto): Wallet
     {

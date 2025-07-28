@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\HF\Repositories\Wallet;
 
+use App\HF\Exceptions\DbException;
 use App\Http\Controllers\Wallet\DTO\CreateWalletDTO;
 use App\Models\Wallet;
 
@@ -15,13 +16,13 @@ final class CreateWalletRepository
     public function create(CreateWalletDTO $dto): Wallet
     {
         try {
-            $model = new Wallet;
+            $model       = new Wallet();
             $model->name = $dto->name;
             $model->save();
-        } catch (\Exception $e) {
-            
-        }
 
-        return $model;
+            return $model;
+        } catch (\Exception $e) {
+            throw new DbException("Failed to create wallet with name: {$dto->name}", 0, $e);
+        }
     }
 }

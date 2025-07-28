@@ -1,0 +1,20 @@
+{
+  "preset": "psr12",
+  "rules": {
+    "declare_strict_types": true,
+    "ternary_to_null_coalescing": true,
+    "void_return": true,
+    "trailing_comma_in_multiline": true,
+    "no_unused_imports": true,
+    "no_empty_phpdoc": false,
+    "phpdoc_align": true
+  },
+  "exclude": [
+    "bootstrap",
+    "data",
+    "database/migrations",
+    "docker",
+    "resources",
+    "vendor"
+  ]
+}

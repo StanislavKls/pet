@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Collection;
 
 final class GetWalletsService
 {
-    public function __construct(private GetWalletsRepository $repo) {}
+    public function __construct(private GetWalletsRepository $repo)
+    {
+    }
 
     public function get(): Collection
     {
